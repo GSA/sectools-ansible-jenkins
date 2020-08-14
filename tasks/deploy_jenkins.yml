@@ -2,11 +2,7 @@
 
 # Setup docker
 
-- name: Install Docker.
-  package:
-    name: "{{ docker_package }}"
-    state: present
-  notify: restart docker
+
 
 # Setup the Jenkins server
 
@@ -19,7 +15,7 @@
 - name: Setup the Jenkins container
   docker_container:
     name: sectools-jenkins
-    image: jenkins/jenkis:lts
+    image: jenkins/jenkins:lts
     state: present
     recreate: yes
     exposed_ports:
