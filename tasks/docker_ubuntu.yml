@@ -57,3 +57,7 @@
       - containerd.io
     state: present
   notify: restart docker
+
+- name: Ensure docker library is installed.
+  pip:
+    name: docker
