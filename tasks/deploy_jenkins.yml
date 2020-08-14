@@ -11,6 +11,7 @@
     path: /var/lib/jenkins
     state: directory
     mode: '0755'
+    owner: 1000
 
 - name: Setup the Jenkins container
   docker_container:
@@ -18,7 +19,7 @@
     image: jenkins/jenkins:lts
     state: started
     recreate: yes
-    exposed_ports:
+    published_ports:
       - "8080:8080"
       - "50000:50000"
     volumes:
