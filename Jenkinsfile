@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'ansible' } }
+    agent { any }
     stages {
         stage('test') {
             steps {
