@@ -16,7 +16,7 @@
   docker_container:
     name: sectools-jenkins
     image: jenkins/jenkins:lts
-    state: present
+    state: started
     recreate: yes
     exposed_ports:
       - "8080:8080"
