@@ -1,20 +1,7 @@
 ---
-# tasks file for sectools-ansible-jenkins
+- include_tasks: docker_ubuntu.yml
+  when: ansible_os_family == 'Debian'
 
-- name: Create a directory if it does not exist
-  file:
-    path: /var/lib/jenkins
-    state: directory
-    mode: '0755'
+- include_tasks: deploy_jenkins.yml
 
-- name: Setup the Jenkins container
-  docker_container:
-    name: sectools-jenkins
-    image: jenkins/jenkis:lts
-    state: present
-    recreate: yes
-    exposed_ports:
-      - "8080:8080"
-      - "50000:50000"
-    volumes:
-      - /var/jenkins /var/lib/jenkins
+

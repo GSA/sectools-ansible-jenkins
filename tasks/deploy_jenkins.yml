@@ -1,0 +1,29 @@
+---
+
+# Setup docker
+
+- name: Install Docker.
+  package:
+    name: "{{ docker_package }}"
+    state: present
+  notify: restart docker
+
+# Setup the Jenkins server
+
+- name: Create a directory if it does not exist
+  file:
+    path: /var/lib/jenkins
+    state: directory
+    mode: '0755'
+
+- name: Setup the Jenkins container
+  docker_container:
+    name: sectools-jenkins
+    image: jenkins/jenkis:lts
+    state: present
+    recreate: yes
+    exposed_ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - /var/jenkins /var/lib/jenkins
