@@ -1,21 +1,20 @@
 ---
 # tasks file for sectools-ansible-jenkins
 
-- name: Create a jenkins directory if it does not exist
+- name: Create a directory if it does not exist
   file:
     path: /var/lib/jenkins
     state: directory
     mode: '0755'
 
-# Install through package manager
-
-- name: Install Docker package
-  package:
-    name: "{{ docker_package }}"
-    state: present 
-  notify: "docker_service"
-
-- name: Enable and start service cylancesvc
-  service:
-    name: docker 
-    enabled: yes
+- name: Setup the Jenkins container
+  docker_container:
+    name: sectools-jenkins
+    image: jenkins/jenkis:lts
+    state: present
+    recreate: yes
+    exposed_ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - /var/jenkins /var/lib/jenkins
