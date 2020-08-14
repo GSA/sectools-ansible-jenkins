@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('test') {
             steps {
-                sh 'ansible-playbook --syntax-check tests/test.yml'
+                sh 'cd ../ansible-playbook --syntax-check sectools-ansible-jenkins/tests/test.yml'
             }
         }
     }
