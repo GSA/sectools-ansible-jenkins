@@ -48,3 +48,12 @@
     repo: "{{ jenkins_docker_apt_repository }}"
     state: present
     update_cache: true  
+
+- name: Install Docker.
+  package:
+    name: 
+      - docker-ce 
+      - docker-ce-cli 
+      - containerd.io
+    state: present
+  notify: restart docker
