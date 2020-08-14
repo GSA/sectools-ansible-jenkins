@@ -22,6 +22,7 @@
       - curl
       - gnupg2
       - software-properties-common
+      - python3-pip
     state: present
 
 - name: Add Docker apt key.
