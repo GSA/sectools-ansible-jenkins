@@ -1,5 +1,5 @@
 ---
 # defaults file for sectools-ansible-jenkins
 
-jenkins_docker_apt_repository: "deb amd64 https://download.docker.com/linux/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} stable"
+jenkins_docker_apt_repository: "deb [arch=amd64] https://download.docker.com/linux/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} stable"
 jenkins_docker_apt_gpg: https://download.docker.com/linux/ubuntu/gpg
