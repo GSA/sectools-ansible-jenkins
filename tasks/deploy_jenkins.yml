@@ -16,7 +16,7 @@
 - name: Setup the Jenkins container
   docker_container:
     name: sectools-jenkins
-    image: jenkins/jenkins:lts
+    image: jenkinsci/blueocean
     state: started
     recreate: yes
     published_ports:
