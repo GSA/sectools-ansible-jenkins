@@ -18,6 +18,7 @@
     name: sectools-jenkins
     image: jenkinsci/blueocean
     state: started
+    user: root
     recreate: yes
     restart_policy: always
     published_ports:
@@ -26,4 +27,4 @@
     volumes:
       - jenkins_home:/var/jenkins_home
 #      - /usr/bin/docker:/usr/bin/docker
-#      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock
