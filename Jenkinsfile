@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'ansible/ansible' }
+        docker { image 'ansible/ansible:default' }
     }
     stages {
         stage('test') {
