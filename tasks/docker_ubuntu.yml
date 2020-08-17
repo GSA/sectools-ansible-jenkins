@@ -12,6 +12,7 @@
       - containerd 
       - runc
       - docker.io
+      - vim
     state: absent
 
 - name: Ensure dependencies are installed.
