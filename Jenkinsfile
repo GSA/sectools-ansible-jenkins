@@ -5,11 +5,10 @@ pipeline {
     stages {
         stage('test') {
             steps {
-                sh 'ls'
-                sh 'rm -rf sectools-ansible-jenkins || echo ""'
                 sh 'mkdir sectools-ansible-jenkins || echo ""'
                 sh 'mv -f * sectools-ansible-jenkins || echo ""'
-                sh 'ls'
+                sh 'apk add --no-cache --purge -uU ansible ansible-lint sudo curl ca-certificates openssh-client'
+                sh 'ansible-playbook --syntax-check sectools-ansible-jenkins/tests/test.yml'
             }
         }
     }
