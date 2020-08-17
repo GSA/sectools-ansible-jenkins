@@ -2,6 +2,9 @@
 - include_tasks: docker_ubuntu.yml
   when: ansible_os_family == 'Debian'
 
+- include_tasks: extras_ubuntu.yml
+  when: ansible_os_family == 'Debian'
+
 - include_tasks: deploy_jenkins.yml
 
 
